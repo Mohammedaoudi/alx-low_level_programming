@@ -7,7 +7,7 @@
 int main(void)
 {
 	int count;
-	unsigned long fiboz = 0, fibob = 1, add;
+	unsigned long fiboa = 0, fibob = 1, add;
 
 	for (count = 0; count < 50; count++)
 	{

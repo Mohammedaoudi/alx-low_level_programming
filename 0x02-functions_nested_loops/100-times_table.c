@@ -1,8 +1,7 @@
 #include "main.h"
 
 /**
- *
- * pint_times_table - prints the n times table, starting with  0 until n
+ * print_times_table - prints the n times table, starting with  0 until n
  *
  * @n: number of the times table
  *
