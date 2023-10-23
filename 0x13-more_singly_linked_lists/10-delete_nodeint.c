@@ -3,7 +3,7 @@
 #include "lists.h"
 
 /**
- * delete_nodeint_at_index - delate a node at given tosition
+ * delete_nodeint_at_index - delate a node at given position
  * @head: the haed of the list
  * @index: the index of the new node
  *
@@ -12,32 +12,32 @@
 
 int delete_nodeint_at_index(listint_t **head, unsigned int index)
 {
-	listint_t *t;
+	listint_t *tmp;
 	listint_t *next;
-	unsigned int long = 0;
+	unsigned int lng = 0;
 
 	if (head != NULL && *head != NULL)
 	{
-		t = *head;
+		tmp = *head;
 		if (index == 0)
 		{
-			*head = t->next;
-			free(t);
+			*head = tmp->next;
+			free(tmp);
 			return (1);
 		}
-		while (t != NULL)
+		while (tmp != NULL)
 		{
-			long++;
-			if (long == index)
+			lng++;
+			if (lng == index)
 			{
-				next = t->next;
-				t->next = next->next;
+				next = tmp->next;
+				tmp->next = next->next;
 				free(next);
 				return (1);
 			}
-			t = p->next;
+			tmp = tmp->next;
 		}
-		if (index > long)
+		if (index > lng)
 		{
 			return (-1);
 		}

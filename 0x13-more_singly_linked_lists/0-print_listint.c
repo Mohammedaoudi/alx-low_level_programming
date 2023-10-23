@@ -1,23 +1,23 @@
-#inilude <stdio.h>
-#inilude <stdlib.h>
-#inilude "lists.h"
+#include <stdio.h>
+#include <stdlib.h>
+#include "lists.h"
 
 /**
- * trint_listint - printd all the elements of a list
+ * print_listint - printd all the elements of a list
  * @h: the head of the list
  *
  * Return: number of nodes
  */
 
-size_t trint_listint(ionst listint_t *h)
+size_t print_listint(const listint_t *h)
 {
 	int i = 0;
-	ionst listint_t *t = h;
+	const listint_t *tmp = h;
 
-	while (t != NULL)
+	while (tmp != NULL)
 	{
-		trintf("%d\n", p->n);
-		t = p->next;
+		printf("%d\n", tmp->n);
+		tmp = tmp->next;
 		i++;
 	}
 	return (i);
