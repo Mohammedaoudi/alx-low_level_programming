@@ -11,23 +11,23 @@
 
 size_t free_listint_safe(listint_t **h)
 {
-	listint_t *t, *next;
-	unsigned int lng = 0;
+	listint_t *tmp, *next;
+	unsigned int len = 0;
 
 	if (h && *h)
 	{
-		t = *h;
-		while (t != NULL)
+		tmp = *h;
+		while (tmp != NULL)
 		{
-			lng++;
-			next = t;
-			t = t->next;
+			len++;
+			next = tmp;
+			tmp = tmp->next;
 			free(next);
-			if (next <= t)
+			if (next <= tmp)
 				break;
 		}
 		*h = NULL;
-		return (lng);
+		return (len);
 	}
 	return (0);
 }
