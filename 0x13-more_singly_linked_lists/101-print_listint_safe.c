@@ -26,7 +26,7 @@ size_t print_listint_safe(const listint_t *head)
 			i = (unsigned long int)tmp % SIZE;
 			if (t[i] == tmp)
 			{
-				printf("-> [%p] %d\n", (void *)tmp,tmp->n);
+				printf("-> [%p] %d\n", (void *)tmp, tmp->n);
 				j--;
 				break;
 			}

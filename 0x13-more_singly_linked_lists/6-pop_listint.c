@@ -3,7 +3,7 @@
 #include "lists.h"
 
 /**
- * tmpop_listint - deletes the head node of a listint_t linked list
+ * pop_listint - deletes the head node of a listint_t linked list
  * @head: tmpointer to the head of the list
  *
  * Return: the head node data
