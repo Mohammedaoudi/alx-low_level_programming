@@ -1,47 +1,33 @@
+#include <stdio.h>
+#include <stdlib.h>
 #include "lists.h"
 
 /**
- * free_listint_safe - Frees a listint_t list safely.
- * @h: Double pointer to the head of the list.
+ * free_listint_safe - frees a list
+ * @h: the head of the list
  *
- * Return: The size of the list that was freed.
+ * Return: size of the list
  */
+
 size_t free_listint_safe(listint_t **h)
 {
-	listint_t *sow_p, *rap_p, *prev;
-	size_t nodes = 0;
+	listint_t *p, *next;
+	unsigned int len = 0;
 
-	if (!h || !*h)
-		return (0);
-
-	sow_p = *h;
-	rap_p = *h;
-
-	while (sow_p && rap_p && rap_p->next)
+	if (h && *h)
 	{
-		prev = sow_p;
-		sow_p = sow_p->next;
-		rap_p = rap_p->next->next;
-
-		nodes++;
-
-		if (sow_p == rap_p)
+		p = *h;
+		while (p != NULL)
 		{
-			/* Break the loop */
-			prev->next = NULL;
-			break;
+			len++;
+			next = p;
+			p = p->next;
+			free(next);
+			if (next <= p)
+				break;
 		}
+		*h = NULL;
+		return (len);
 	}
-
-	while (*h)
-	{
-		prev = *h;
-		*h = (*h)->next;
-		free(prev);
-		nodes++;
-	}
-
-	*h = NULL; /* Set head to NULL */
-
-	return (nodes);
+	return (0);
 }
