@@ -5,50 +5,28 @@
 #include "main.h"
 
 /**
- * read_textfile - reads a text file and prints it to the stdout
- * @filenthame: file name
- * @letters: the number of letters it should print
- *
- * Return: the actual number of letters it could read and print
+ * read_textfile- Read text file print to STDOUT.
+ * @filename: text file being read
+ * @letters: number of letters to be read
+ * Return: w- actual number of bytes read and printed
+ *        0 when function fails or filename is NULL.
  */
-
-ssize_t read_textfile(const char *filenthame, size_t letters)
+ssize_t read_textfile(const char *filename, size_t letters)
 {
-	int fab;
-	ssize_t lenthth, c;
-	char *a;
+	char *buff;
+	ssize_t fed;
+	ssize_t v;
+	ssize_t te;
 
-	if (filenthame == NULL)
+	fed = open(filename, O_RDONLY);
+	if (fed == -1)
 		return (0);
+	buff = malloc(sizeof(char) * letters);
+	te = read(fed, buff, letters);
+	v = write(STDOUT_FILENO, buff, te);
 
-	fab = open(filenthame, O_RDONLY);
-	if (fab == -1)
-		return (0);
-
-	a = malloc(sizeof(char) * letters);
-	if (!a)
-	{
-		close(fab);
-		return (0);
-	}
-
-	lenth = read(fab, a, letters);
-	if (lenth == -1)
-	{
-		close(fab);
-		free(a);
-		return (0);
-	}
-
-	c = write(STDOUT_FILENO, a, lenth);
-	if (c == -1)
-	{
-		close(fab);
-		free(a);
-		return (0);
-	}
-
-	close(fab);
-	free(a);
-	return (c);
+	free(buff);
+	close(fed);
+	return (v);
 }
+
