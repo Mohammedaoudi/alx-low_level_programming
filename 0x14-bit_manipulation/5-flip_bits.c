@@ -20,7 +20,7 @@ unsigned int flip_bits(unsigned long int n, unsigned long int m)
 	for (i = 63; i >= 0; i--)
 	{
 		ab = xor >> i;
-		if (ba & 1)
+		if (ab & 1)
 			ca++;
 	}
 	return (ca);
