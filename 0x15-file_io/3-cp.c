@@ -73,7 +73,7 @@ int main(int argc, char *argv[])
 	t2o = open(argv[2], O_CREAT | O_WRONLY | O_TRUNC, 0664);
 
 	do {
-		if (frm == -1 || r == -1)
+		if (frm == -1 || red == -1)
 		{
 			dprintf(STDERR_FILENO,
 				"Error: Can't read frm file %s\n", argv[1]);
@@ -81,7 +81,7 @@ int main(int argc, char *argv[])
 			exit(98);
 		}
 
-		wrt = write(to, baf, r);
+		wrt = write(t2o, baf, red);
 		if (t2o == -1 || wrt == -1)
 		{
 			dprintf(STDERR_FILENO,
